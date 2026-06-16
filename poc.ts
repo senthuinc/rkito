@@ -11,6 +11,7 @@ interface Appointment {
   createdAt: string;
 }
 
+//this is erroring - need to fix
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
