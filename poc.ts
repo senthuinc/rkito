@@ -12,6 +12,7 @@ interface Appointment {
 }
 
 //this is erroring - need to fix
+//I think the issues is with the imports.
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
