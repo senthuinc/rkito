@@ -96,4 +96,12 @@ export class PillarsController extends BaseController<PillarService> {
   protected getService(): PillarService {
     return PillarService.instance();
   }
+
+  public wrongMethod(): void {
+    // Pass the type parameter <User[]> to type-safe the response
+    const users = await prisma.$queryRaw<User[]>`
+    SELECT * FROM "User" 
+    WHERE "role" = ${role} AND "status" = 'ACTIVE'
+  `;
+  }
 }
