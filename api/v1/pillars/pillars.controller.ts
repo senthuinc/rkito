@@ -101,7 +101,8 @@ export class PillarsController extends BaseController<PillarService> {
     // Pass the type parameter <User[]> to type-safe the response
     const users = await prisma.$queryRaw<User[]>`
     SELECT * FROM "User" 
-    WHERE "role" = ${role} AND "status" = 'ACTIVE'
+    WHERE "role" = ${role} AND "status" = 'ACTIVE' 
   `;
+    //this must be flagged
   }
 }
