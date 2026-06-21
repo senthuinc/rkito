@@ -99,9 +99,11 @@ export class PillarsController extends BaseController<PillarService> {
 
   public wrongMethod(): void {
     // Pass the type parameter <User[]> to type-safe the response
+    //I am lazy, I do not want to create any services.. how do I call db??,,
     const users = await prisma.$queryRaw<User[]>`
     SELECT * FROM "User" 
-    WHERE "role" = ${role} AND "status" = 'ACTIVE'
+    WHERE "role" = ${role} AND "status" = 'ACTIVE' 
   `;
+    //this must be flagged
   }
 }
