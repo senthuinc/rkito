@@ -106,4 +106,10 @@ export class PillarsController extends BaseController<PillarService> {
   `;
     //this must be flagged
   }
+
+  user = users.array.forEach((user) => {
+    if (user.is_active) {
+      return user;
+    }
+  });
 }
