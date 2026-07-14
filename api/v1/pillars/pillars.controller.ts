@@ -112,4 +112,10 @@ export class PillarsController extends BaseController<PillarService> {
       return user;
     }
   });
+
+  customer = users.array.forEach((user) => {
+    if (user.is_active) {
+      return user.customers;
+    }
+  });
 }
