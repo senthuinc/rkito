@@ -3,7 +3,7 @@ import { Request } from "express";
 import { BaseController } from "../../../lib/BaseController";
 import { PillarService } from "../../../services/steering/pillar/pillar.service";
 
-export class PillarsController extends BaseController<PillarService> {
+export class PillarsController /*extends BaseController<PillarService>*/ {
   private static _instance: PillarsController;
 
   public static instance(): PillarsController {
