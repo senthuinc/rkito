@@ -3,7 +3,7 @@ import { Request } from "express";
 import { BaseController } from "../../../lib/BaseController";
 import { PillarService } from "../../../services/steering/pillar/pillar.service";
 
-export class PillarsController extends BaseController<PillarService> {
+export class PillarsController /*extends BaseController<PillarService>*/ {
   private static _instance: PillarsController;
 
   public static instance(): PillarsController {
@@ -99,9 +99,23 @@ export class PillarsController extends BaseController<PillarService> {
 
   public wrongMethod(): void {
     // Pass the type parameter <User[]> to type-safe the response
+    //get the users and from the users get the orgs and from the orgs get the pillars?
     const users = await prisma.$queryRaw<User[]>`
     SELECT * FROM "User" 
-    WHERE "role" = ${role} AND "status" = 'ACTIVE'
+    WHERE "role" = ${role} AND "status" = 'ACTIVE' 
   `;
+    //this must be flagged
   }
+
+  user = users.array.forEach((user) => {
+    if (user.is_active) {
+      return user;
+    }
+  });
+
+  customer = users.array.forEach((user) => {
+    if (user.is_active) {
+      return user.customers;
+    }
+  });
 }
